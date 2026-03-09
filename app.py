@@ -15,8 +15,8 @@ def img2text(image_path):
 # 2. text to story (limit to 50-100 words)
 
 def text2story(caption):
-    story_gen = pipeline("text-generation", model="pranavpsv/genre-story-generator-v2")
-    story = story_gen(caption, max_length=120, min_length=50, do_sample=True, top_p=0.95, temperature=0.9)[0]['generated_text']
+    story_gen = pipeline("text-generation", model="distilbert/distilgpt")
+    story = story_gen(caption, max_length=200, min_length=150, do_sample=True, top_p=0.95, temperature=0.9)[0]['generated_text']
 
     # to ensure story length is within 100 words
     words = story.split()
